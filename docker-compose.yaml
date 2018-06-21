@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: postgres:9.6
+    ports:
+     - "5432"
+    environment:
+     POSTGRES_PASSWORD: 123
+  backup:
+    build: ./base-image
+    image: healthsamurai/backup-pg3:latest
+    environment:
+     PG_HOST: db
+     PG_PORT: 5432
+     PG_USER: postgres
+     PGPASSWORD: 123
+  exporter-s3:
+     build: ./s3-export
+     environment:
+      AWS_ACCESS_KEY_ID: 
+      AWS_SECRET_ACCESS_KEY: 
+      PG_HOST: db
+      PG_PORT: 5432
+      PG_USER: postgres
+      PGPASSWORD: 123
+      BUCKET: pg3-backup-test
