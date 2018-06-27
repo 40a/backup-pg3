@@ -24,3 +24,13 @@ services:
       PG_USER: postgres
       PGPASSWORD: 123
       BUCKET: pg3-backup-test
+  exporter-gce:
+     build: ./gce-export
+     environment:
+      AWS_ACCESS_KEY_ID: 
+      AWS_SECRET_ACCESS_KEY: 
+      PG_HOST: db
+      PG_PORT: 5432
+      PG_USER: postgres
+      PGPASSWORD: 123
+      BUCKET: pg3-backup-test
