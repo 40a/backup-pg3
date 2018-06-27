@@ -1,1 +1,1 @@
-echo 'skip backup exporting'
+echo -n 'skip backup exporting'
