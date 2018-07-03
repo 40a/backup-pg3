@@ -1,4 +1,4 @@
-FROM healthsamurai/backup-pg3:latest
+FROM healthsamurai/wal-export:latest
 
 RUN apk -v --update add \
         python \
@@ -11,4 +11,4 @@ RUN apk -v --update add \
     apk -v --purge del py-pip && \
     rm /var/cache/apk/*
 
-ADD export-backup.sh .
+ADD export-file.sh .
